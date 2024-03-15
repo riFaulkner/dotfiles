@@ -24,6 +24,7 @@ vim.g.copilot_filetypes = {
   ["graphql"] = true,
   ["sql"] = true,
   ["shell"] = true,
+  ["sh"] = true,
   ["dockerfile"] = true,
   ["vim"] = true,
   ["make"] = true,
