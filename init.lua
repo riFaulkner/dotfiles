@@ -84,6 +84,21 @@ require("lazy").setup({
   },
 
   {
+    "ray-x/go.nvim",
+    dependencies = { -- optional packages
+      "ray-x/guihua.lua",
+      "neovim/nvim-lspconfig",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("go").setup()
+    end,
+    event = { "CmdlineEnter" },
+    ft = { "go", "gomod" },
+    build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+  },
+
+  {
     -- Autocompletion
     "hrsh7th/nvim-cmp",
     dependencies = { "hrsh7th/cmp-nvim-lsp", "L3MON4D3/LuaSnip", "saadparwaiz1/cmp_luasnip" },
@@ -98,7 +113,7 @@ require("lazy").setup({
   -- Useful plugin to show you pending keybinds.
   { "folke/which-key.nvim",          opts = {} },
   {
-    -- Adds git releated signs to the gutter, as well as utilities for managing changes
+    -- Adds git related signs to the gutter, as well as utilities for managing changes
     "lewis6991/gitsigns.nvim",
     opts = {
       -- See `:help gitsigns.txt`
@@ -135,9 +150,10 @@ require("lazy").setup({
     "lukas-reineke/indent-blankline.nvim",
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help indent_blankline.txt`
+    main = "ibl",
     opts = {
-      char = "┊",
-      show_trailing_blankline_indent = false,
+      -- char = "┊",
+      -- show_trailing_blankline_indent = false,
     },
   },
 
@@ -174,6 +190,14 @@ require("lazy").setup({
   "theprimeagen/harpoon",
   "github/copilot.vim",
   "vim-test/vim-test",
+
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = true,
+    -- use opts = {} for passing setup options
+    -- this is equalent to setup({}) function
+  },
 
   -- Items to consider.
   -- auto-pairs
