@@ -29,6 +29,7 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
+  print("LSP attached to buffer " .. bufnr)
   local nmap = function(keys, func, desc)
     if desc then
       desc = "LSP: " .. desc
@@ -69,17 +70,15 @@ local on_attach = function(_, bufnr)
   end, { desc = "Format current buffer with LSP" })
 end
 
--- Enable the following language servers
---  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
---
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
   gopls = {
-
-    -- TODO: Add in some configs for gopls. maybe this is why it hasn't been working....
+    analyses = {
+      unusedparams = true,
+    },
+    staticcheck = true,
   },
-
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -91,8 +90,6 @@ local servers = {
     anyalize = {
       typeCheckingMode = "strict",
     },
-    -- venvPath = "/Users/rickfaulkner/.local/share/virtualenvs/",
-    -- venv = "service-inference-lookup-EmlUSKbk",
   },
 }
 

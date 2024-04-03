@@ -1,27 +1,32 @@
 return {
+	-- Staying here
 	-- Detect tabstop and shiftwidth automatically
 	"tpope/vim-sleuth",
-
+	-- Comment out lines with gc
+	{ "numToStr/Comment.nvim", opts = {} },
 	-- Useful plugin to show you pending keybinds.
 	{ "folke/which-key.nvim",  opts = {} },
-
-	{
-		"mbbill/undotree",
-		config = function()
-			vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "[U]ndo tree" })
-		end,
-	},
-	"github/copilot.vim",
-	"vim-test/vim-test",
-
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = true,
 	},
+	"vim-test/vim-test",
 
-	-- NOTE: This is where your plugins related to LSP can be installed.
-	--  The configuration is done below. Search for lspconfig to find it below.
+	-- cosmetic stuff
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		opts = {},
+		config = function()
+			require("ibl").setup()
+		end,
+	},
+
+	-- might move
+	"github/copilot.vim",
+
+	-- still evaluating
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
@@ -30,7 +35,6 @@ return {
 
 			{ "j-hui/fidget.nvim",       opts = {} },
 
-			-- Additional lua configuration, makes nvim stuff amazing!
 			"folke/neodev.nvim",
 		},
 	},
@@ -45,39 +49,6 @@ return {
 		-- Auto code formatter
 		"jose-elias-alvarez/null-ls.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
-	},
-
-	{ -- TODO: Current theam, think about changing it to tokyonight
-		"navarasu/onedark.nvim",
-	},
-
-	{
-		-- Add indentation guides even on blank lines
-		"lukas-reineke/indent-blankline.nvim",
-		-- Enable `lukas-reineke/indent-blankline.nvim`
-		-- See `:help indent_blankline.txt`
-		main = "ibl",
-		opts = {
-			-- char = "┊",
-			-- show_trailing_blankline_indent = false,
-		},
-	},
-
-	-- "gc" to comment visual regions/lines
-	{ "numToStr/Comment.nvim", opts = {} },
-	{
-		-- Adds git related signs to the gutter, as well as utilities for managing changes
-		"lewis6991/gitsigns.nvim",
-		opts = {
-			-- See `:help gitsigns.txt`
-			signs = {
-				add = { text = "+" },
-				change = { text = "~" },
-				delete = { text = "_" },
-				topdelete = { text = "‾" },
-				changedelete = { text = "~" },
-			},
-		},
 	},
 
 	-- Items to consider.
