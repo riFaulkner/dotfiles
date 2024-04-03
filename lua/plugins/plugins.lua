@@ -44,12 +44,12 @@ return {
 		dependencies = { "hrsh7th/cmp-nvim-lsp", "L3MON4D3/LuaSnip", "saadparwaiz1/cmp_luasnip" },
 	},
 
-	{
-		-- TODO: Null-ls is apparently going to be deprecated. Look into a replacement
-		-- Auto code formatter
-		"jose-elias-alvarez/null-ls.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
+	-- {
+	-- 	-- TODO: Null-ls is apparently going to be deprecated. Look into a replacement
+	-- 	-- Auto code formatter
+	-- 	"jose-elias-alvarez/null-ls.nvim",
+	-- 	dependencies = { "nvim-lua/plenary.nvim" },
+	-- },
 
 	-- Items to consider.
 	-- nerd-tree
