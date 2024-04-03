@@ -1,6 +1,4 @@
 vim.g.mapleader = " "
--- set a description on this pneumonic so its easy to remember. PV P view?
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "[P]arousing [V]iew" })
 
 vim.api.nvim_set_keymap("n", "<C-j>", ":wincmd j<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<C-k>", ":wincmd k<CR>", { silent = true })
