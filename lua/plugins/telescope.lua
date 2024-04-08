@@ -1,4 +1,7 @@
-return { "nvim-telescope/telescope.nvim", version = "*", dependencies = { "nvim-lua/plenary.nvim" } },
+return {
+	{
+		"nvim-telescope/telescope.nvim", version = "*", dependencies = { "nvim-lua/plenary.nvim" } },
+
 	-- Fuzzy Finder Algorithm which requires local dependencies to be built.
 	{
 		"nvim-telescope/telescope-fzf-native.nvim",
@@ -8,4 +11,19 @@ return { "nvim-telescope/telescope.nvim", version = "*", dependencies = { "nvim-
 		cond = function()
 			return vim.fn.executable("make") == 1
 		end,
+	},
+	{
+		"nvim-telescope/telescope-ui-select.nvim",
+		config = function()
+			require("telescope").setup {
+				extensions = {
+					["ui-select"] = {
+						require("telescope.themes").get_dropdown {
+						}
+					}
+				}
+			}
+			require("telescope").load_extension("ui-select")
+		end
 	}
+}
