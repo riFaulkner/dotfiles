@@ -14,23 +14,22 @@ return {
 			},
 		},
 
-
-
-
 		opts = {
 			formatters_by_ft = {
+				["*"] = { "codespell" },
 				go = { "gofmt", "goimports" },
+				lua = { "stylua" },
+				python = { "isort", "black" },
 				tf = { "terraform_fmt" },
 				yaml = { "yamlfmt" },
-				lua = { "stylua" },
 			},
 			format_on_save = { timeout_ms = 500, lsp_fallback = true },
+			formatters = {
+				shfmt = {
+					prepend_args = { "-i", "2" },
+				},
+			},
 		},
-		config = function()
-			vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
-			require("conform").setup()
-			print("Setting up conform")
-		end,
 
 		init = function()
 			vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"

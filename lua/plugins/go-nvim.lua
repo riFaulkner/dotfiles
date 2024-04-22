@@ -7,6 +7,8 @@ return {
 	},
 	config = function()
 		require("go").setup()
+		vim.keymap.set("n", "<leader>gtn", ":GoTestFunc<CR>", { desc = "[g]o [t]est function[n]" })
+		vim.keymap.set("n", "<leader>gat", ":GoAddTest<CR>", { desc = "[g]o [a]dd [t]est" })
 	end,
 	event = { "CmdlineEnter" },
 	ft = { "go", "gomod" },
