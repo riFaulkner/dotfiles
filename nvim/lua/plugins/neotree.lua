@@ -11,8 +11,6 @@ return {
 		vim.keymap.set("n", "<C-n>", ":Neotree toggle filesystem reveal left<CR>", {})
 		vim.keymap.set("n", "<leader>n", ":Neotree filesystem  position=current<CR>",
 			{ desc = "Open Neotree in netRW style" })
-		-- :Neotree position=current
-		-- vim.keymap.set("n", "<leader>b", ":Neotree toggle show buffers right<cr>", {})
 		vim.keymap.set("n", "<leader>b", ":Neotree toggle buffers reveal right <CR>", {})
 	end,
 }
