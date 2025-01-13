@@ -27,4 +27,5 @@ vim.g.copilot_filetypes = {
   ["dockerfile"] = true,
   ["vim"] = true,
   ["make"] = true,
+  ["scala"] = true,
 }

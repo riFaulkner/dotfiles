@@ -71,6 +71,11 @@ local on_attach = function(_, bufnr)
   end, { desc = "Format current buffer with LSP" })
 end
 
+-- Creates a lil global wrapper for on attach methoed
+On_attach = function(client, bufnr)
+  on_attach(client, bufnr)
+end
+
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
