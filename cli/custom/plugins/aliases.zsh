@@ -1,5 +1,9 @@
-#!/bin/sh
-#shopt -s expand_aliases
+# Application Aliases
+alias k=kubectl
+alias kx=switch 
+alias v='nvim .'
+alias lg=lazygit
+alias ed="nvim ~/.zshrc"
 
 
 # Git Aliases
@@ -9,7 +13,6 @@ git config --global alias.cob 'co -b'
 git config --global alias.re 'reset --hard'
 git config --global alias.s 'status'
 git config --system alias.up '!sh -c "git pull --prune && git sub module update --init --recursive"'
-
 
 git config --system color.ui "true";
 git config --system push.default "current";
@@ -27,9 +30,3 @@ git config --system alias.caa "commit -a --amend -C HEAD";
 git config --system alias.pr "pull-request";
 git config --system hub.protocol "https";
 git config --global pull.rebase false
-
-
-alias k=kubectl
-alias kx=switch 
-alias v='nvim .'
-alias lg=lazygit
