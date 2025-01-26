@@ -23,6 +23,7 @@ NVIM_TARGET="$XDG_CONFIG_HOME/nvim"
 LINKS=(
     "$XDG_CONFIG_HOME/nvim" "$DOTFILES_REPO/nvim"
     "$XDG_CONFIG_HOME/tmux/tmux.conf" "$DOTFILES_REPO/tmux/tmux.conf"
+    "$XDG_CONFIG_HOME/ghostty/config" "$DOTFILES_REPO/ghostty/config"
     # "$HOME/.gitconfig" "$DOTFILES_REPO/git/gitconfig"
     # "$HOME/.zshhrc" "$DOTFILES_REPO/bash/bashrc" TODO: add .zshrc to dotfiles
     # "$HOME/.zshrc" "$DOTFILES_REPO/zsh/zshrc"
