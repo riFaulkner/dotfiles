@@ -1,0 +1,2 @@
+theme = light:tokyonight-day, dark:tokyonight
+keybind = global:cmd+g=toggle_quick_terminal
