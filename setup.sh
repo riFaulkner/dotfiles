@@ -8,7 +8,7 @@ function create_symlink () {
     local TARGET="$2"
 
     if [ ! -e "$TARGET" ]; then
-	# ln -s "$source" "$target"
+	ln -s "$SOURCE" "$TARGET"
 	echo "Created symlink: $TARGET -> $SOURCE"
     else
 	echo "Symlink already exists at: $TARGET"

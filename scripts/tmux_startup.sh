@@ -13,7 +13,7 @@ tmux new-session -d -s $SESSION
 
 # Create a pane for python rename it and start the python interpreter
 tmux rename-window -t 0 "python"
-tmux send-keys -t $SESSION:python 'python' C-m
+tmux send-keys -t $SESSION:python 'python3' C-m
 
 # Create a pane for the terminal, this should take up the majority of the screen width
 tmux split-window -dh -l 80%
