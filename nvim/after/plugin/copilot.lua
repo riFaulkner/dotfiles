@@ -28,4 +28,5 @@ vim.g.copilot_filetypes = {
   ["vim"] = true,
   ["make"] = true,
   ["scala"] = true,
+  ["ruby"] = true,
 }

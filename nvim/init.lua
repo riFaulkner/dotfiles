@@ -99,6 +99,8 @@ local servers = {
       typeCheckingMode = "strict",
     },
   },
+
+
 }
 
 -- Setup neovim lua configuration
@@ -169,6 +171,14 @@ cmp.setup({
     { name = "luasnip" },
   },
 })
+
+local lspconfig = require('lspconfig')
+lspconfig.sorbet.setup {
+  cmd = { "bundle", "exec", "sbt", "tc", "--lsp" },
+  init_options = {
+    highlightUntyped = true
+  }
+}
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
