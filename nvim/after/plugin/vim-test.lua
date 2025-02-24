@@ -1,5 +1,5 @@
 local g = vim.g
-g["test#strategy"] = "neovim"
+g["test#strategy"] = "neovim_sticky"
 g["test#python#runner"] = "pytest"
 
 -- Bindings to make testing easier
