@@ -5,6 +5,11 @@ vim.api.nvim_set_keymap("n", "<C-k>", ":wincmd k<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<C-h>", ":wincmd h<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<C-l>", ":wincmd l<CR>", { silent = true })
 
+vim.api.nvim_set_keymap("n", "<leader>tn", ":tabn<CR>", { silent = true })
+vim.api.nvim_set_keymap("n", "<leader>tp", ":tabp<CR>", { silent = true })
+-- vim.keymap.set("n", "<leader>tn", vim.api.nvim_command, {})
+
+
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
