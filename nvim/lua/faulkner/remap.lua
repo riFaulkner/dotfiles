@@ -7,7 +7,6 @@ vim.api.nvim_set_keymap("n", "<C-l>", ":wincmd l<CR>", { silent = true })
 
 vim.api.nvim_set_keymap("n", "<leader>tn", ":tabn<CR>", { silent = true })
 vim.api.nvim_set_keymap("n", "<leader>tp", ":tabp<CR>", { silent = true })
--- vim.keymap.set("n", "<leader>tn", vim.api.nvim_command, {})
 
 
 -- Keymaps for better default experience
