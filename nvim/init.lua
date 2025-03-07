@@ -86,7 +86,6 @@ local servers = {
     staticcheck = true,
   },
 
-
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -100,7 +99,7 @@ local servers = {
     },
   },
 
-
+  bashls = {},
 }
 
 -- Setup neovim lua configuration
