@@ -7,7 +7,7 @@ return {
 	config = function()
 		local config = require("nvim-treesitter.configs")
 		config.setup({
-			ensure_installed = { "go", "lua", "python", "tsx", "typescript", "vimdoc", "vim" },
+			ensure_installed = { "go", "java", "lua", "python", "scala", "tsx", "typescript", "vimdoc", "vim" },
 
 			auto_install = false,
 
