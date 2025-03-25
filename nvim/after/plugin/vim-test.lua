@@ -1,6 +1,7 @@
 local g = vim.g
 g["test#strategy"] = "neovim_sticky"
 g["test#python#runner"] = "pytest"
+g["test#ruby#runner"] = "rspec"
 
 -- Bindings to make testing easier
 vim.keymap.set("n", "<leader>tt", ":TestNearest<CR>", { silent = true, desc = "Run nearest test" })
