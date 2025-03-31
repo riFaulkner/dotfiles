@@ -44,3 +44,5 @@ vim.o.termguicolors = true
 
 vim.opt.spell = true
 vim.opt.spelllang = { "en_us" }
+
+vim.opt_local.conceallevel = 1
