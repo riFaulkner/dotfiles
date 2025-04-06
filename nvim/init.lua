@@ -21,10 +21,12 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
 -- Diagnostic keymaps
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" }) -- Todo update
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })     -- Todo update
-vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open floating [d]iagnostic message" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end,
+  { desc = "Go to previous diagnostic message" })
+vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end,
+  { desc = "Go to next diagnostic message" })
+vim.keymap.set("n", "<leader>dd", vim.diagnostic.open_float, { desc = "Open floating [d]iagnostic message" })
+vim.keymap.set("n", "<leader>dq", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
