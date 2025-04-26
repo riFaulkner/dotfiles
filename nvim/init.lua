@@ -179,13 +179,13 @@ cmp.setup({
   }
 })
 
-local lspconfig = require('lspconfig')
-lspconfig.sorbet.setup {
-  cmd = { "bundle", "exec", "sbt", "tc", "--lsp" },
-  init_options = {
-    highlightUntyped = true
-  }
-}
+-- local lspconfig = require('lspconfig')
+-- lspconfig.sorbet.setup {
+--   cmd = { "bundle", "exec", "sbt", "tc", "--lsp" },
+--   init_options = {
+--     highlightUntyped = true
+--   }
+-- }
 
 -- require("obsidian").setup({})
 
