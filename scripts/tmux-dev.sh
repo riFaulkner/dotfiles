@@ -30,9 +30,6 @@ t_new() {
 
 	tmux send-keys -t "$SESSION:nvim" 'nvim .' C-m
 
-	tmux new-window -t $SESSION -n git
-	tmux send-keys -t $SESSION:git 'lg' C-m
-
 	tmux new-window -t $SESSION -n shell
 
 	fi
