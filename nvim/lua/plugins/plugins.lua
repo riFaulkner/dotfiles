@@ -43,6 +43,12 @@ return {
 		"hrsh7th/nvim-cmp",
 		dependencies = { "hrsh7th/cmp-nvim-lsp", "L3MON4D3/LuaSnip", "saadparwaiz1/cmp_luasnip" },
 	},
+	{
+		'christoomey/vim-tmux-runner', -- tmux runner
+		config = function()
+			vim.keymap.set('n', '<leader>pa', '<cmd>VtrAttachToPane<cr>', { desc = 'Attach to tmux pane' })
+		end
+	},
 
 	-- {
 	-- 	-- TODO: Null-ls is apparently going to be deprecated. Look into a replacement
@@ -55,9 +61,6 @@ return {
 	-- nerd-tree
 	-- oil.nvim
 	--
-	-- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
-	--       These are some example plugins that I've included in the kickstart repository.
-	--       Uncomment any of the lines below to enable them.
 	-- require 'kickstart.plugins.autoformat',
 	-- require 'kickstart.plugins.debug',
 }

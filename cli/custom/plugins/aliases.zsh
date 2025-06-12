@@ -3,7 +3,9 @@ alias k=kubectl
 alias kx=switch 
 alias v='nvim .'
 alias lg=lazygit
-alias ed="nvim ~/.zshrc"
+alias ed="nvim $HOME/.zshrc"
+
+# Strava Alias
 
 
 # Git Aliases
@@ -30,3 +32,4 @@ git config --system alias.caa "commit -a --amend -C HEAD";
 git config --system alias.pr "pull-request";
 git config --system hub.protocol "https";
 git config --global pull.rebase false
+
