@@ -4,7 +4,9 @@ return {
 		"nvim-neotest/nvim-nio", -- required for nvim-dap-ui
 		"rcarriga/nvim-dap-ui",
 		'theHamsta/nvim-dap-virtual-text',
-		"suketa/nvim-dap-ruby"
+		"suketa/nvim-dap-ruby",
+		'leoluz/nvim-dap-go'
+
 	},
 	config = function()
 		local dap, dapui = require("dap"), require("dapui")
@@ -52,6 +54,7 @@ return {
 		end)
 
 		-- Debuggers
+		require("dap-go").setup()
 		-- Scala
 		-- should be done by metals?
 		-- Ruby
