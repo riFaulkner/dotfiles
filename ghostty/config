@@ -1,3 +1,3 @@
-theme = light:tokyonight-day, dark:tokyonight
+theme = light:TokyoNight Day, dark: TokyoNight Storm
 keybind = global:cmd+g=toggle_quick_terminal
 link-url=true

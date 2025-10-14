@@ -22,6 +22,7 @@ LINKS=(
     "$XDG_CONFIG_HOME/nvim" "$DOTFILES_REPO/nvim"
     "$XDG_CONFIG_HOME/tmux" "$DOTFILES_REPO/tmux"
     "$XDG_CONFIG_HOME/ghostty" "$DOTFILES_REPO/ghostty"
+    "$XDG_CONFIG_HOME/py" "$DOTFILES_REPO/python"
 )
 
 

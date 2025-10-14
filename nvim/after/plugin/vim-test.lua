@@ -1,5 +1,6 @@
 local g = vim.g
-g["test#strategy"] = "neovim_sticky"
+-- g["test#strategy"] = "neovim_sticky"
+g["test#strategy"] = "vtr"
 g["test#python#runner"] = "pytest"
 g["test#ruby#runner"] = "rspec"
 

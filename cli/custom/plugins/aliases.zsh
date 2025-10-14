@@ -5,6 +5,9 @@ alias v='nvim .'
 alias lg=lazygit
 alias ed="nvim ~/.zshrc"
 
+# Navigation Aliases
+alias cdd="~/Documents/workspace/dotfiles" # would be nice to have this more dynamic..
+
 
 # Git Aliases
 git config --global alias.cam 'commit -am'

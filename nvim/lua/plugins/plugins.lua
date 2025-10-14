@@ -44,6 +44,8 @@ return {
 		dependencies = { "hrsh7th/cmp-nvim-lsp", "L3MON4D3/LuaSnip", "saadparwaiz1/cmp_luasnip" },
 	},
 
+	'christoomey/vim-tmux-runner',
+
 	-- {
 	-- 	-- TODO: Null-ls is apparently going to be deprecated. Look into a replacement
 	-- 	-- Auto code formatter
