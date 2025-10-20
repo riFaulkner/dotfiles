@@ -16,7 +16,7 @@ return {
 
 		opts = {
 			formatters_by_ft = {
-				["*"] = { "codespell" },
+				-- ["*"] = { "codespell" },
 				go = { "gofmt", "goimports" },
 				lua = { "stylua" },
 				python = { "isort", "black" },

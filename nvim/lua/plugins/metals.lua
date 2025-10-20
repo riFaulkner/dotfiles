@@ -19,9 +19,9 @@ return {
 		metals_config.settings = {
 			autoImportBuild = "all",
 			defaultBspToBuildTool = true,
-			showImplicitArguments = true,
-			showImplicitConversionsAndClasses = true,
-			showInferredType = true,
+			-- showImplicitArguments = true,
+			-- showImplicitConversionsAndClasses = true,
+			-- showInferredType = true,
 			-- statusBarProvider = "off", -- don't think this is a real thing, see the below of adding statusBarProvider to init_options -- NVim metals you are the worst
 		}
 		metals_config.init_options.statusBarProvider = "off"

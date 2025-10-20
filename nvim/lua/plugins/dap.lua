@@ -4,7 +4,7 @@ return {
 		"nvim-neotest/nvim-nio", -- required for nvim-dap-ui
 		"rcarriga/nvim-dap-ui",
 		'theHamsta/nvim-dap-virtual-text',
-		"suketa/nvim-dap-ruby"
+		"suketa/nvim-dap-ruby",
 	},
 	config = function()
 		local dap, dapui = require("dap"), require("dapui")
@@ -57,6 +57,34 @@ return {
 		-- should be done by metals?
 		-- Ruby
 		require("dap-ruby").setup()
+		dap.configurations.scala = {
+			{
+				type = "scala",
+				request = "launch",
+				name = "Run or Test Target",
+				metals = {
+					runType = "runOrTestFile",
+					jvmOptions = { "-J--illegal-access=permit" },
+				},
+			},
+			{
+				type = "scala",
+				request = "launch",
+				name = "Test Target",
+				metals = {
+					runType = "testTarget",
+					jvmOptions = { "-J--illegal-access=permit" },
+				},
+			},
+			{
+				type = "scala",
+				request = "attach",
+				name = "Attach to Localhost",
+				hostName = "localhost",
+				port = 5005,
+				buildTarget = "root",
+			}
+		}
 
 
 		-- rdbg --open --port 38698 -- bin/rspec ./spec/lib/views/modular/modular_graphql/activity_details/page_spec.rb
