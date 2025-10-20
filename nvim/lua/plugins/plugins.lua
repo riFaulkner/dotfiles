@@ -50,6 +50,8 @@ return {
 		end
 	},
 
+	'christoomey/vim-tmux-runner',
+
 	-- {
 	-- 	-- TODO: Null-ls is apparently going to be deprecated. Look into a replacement
 	-- 	-- Auto code formatter

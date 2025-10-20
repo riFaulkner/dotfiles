@@ -26,36 +26,35 @@ return {
 		end
 
 		-- keymaps
-		vim.keymap.set('n', '<leader>dc', function() dap.continue() end, { desc = "Continue" })
-		vim.keymap.set('n', '<leader>do', function() dap.step_over() end, { desc = "Step Over" })
-		vim.keymap.set('n', '<leader>di', function() dap.step_into() end, { desc = "Step Into" })
-		vim.keymap.set('n', '<leader>du', function() dap.step_out() end, { desc = "Step Out" })
-		vim.keymap.set('n', '<leader>db', function() dap.toggle_breakpoint() end, { desc = "Toggle Breakpoint" })
-		vim.keymap.set('n', '<leader>dB', function() dap.set_breakpoint() end, { desc = "Set Breakpoint" })
-		vim.keymap.set('n', '<leader>dlp',
-			function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end, { desc = "Log Point" })
-		vim.keymap.set('n', '<leader>dr', function() dap.repl.open() end, { desc = "Open REPL" })
-		vim.keymap.set('n', '<leader>dl', function() dap.run_last() end, { desc = "Run last" }) -- todo: will this have a conflict with leader dlp?
+		vim.keymap.set('n', '<leader>dc', function() dap.continue() end, { desc = "DAP Continue" })
+		vim.keymap.set('n', '<leader>do', function() dap.step_over() end, { desc = "DAP Step Over" })
+		vim.keymap.set('n', '<leader>di', function() dap.step_into() end, { desc = "DAP Step Into" })
+		vim.keymap.set('n', '<leader>du', function() dap.step_out() end, { desc = "DAP Step Out" })
+		vim.keymap.set('n', '<leader>db', function() dap.toggle_breakpoint() end, { desc = "DAP Toggle Breakpoint" })
+		vim.keymap.set('n', '<leader>dB', function() dap.set_breakpoint() end, { desc = "DAP Set Breakpoint" })
+		vim.keymap.set('n', '<leader>dml',
+			function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end,
+			{ desc = "DAP Set Log Point" })
+		vim.keymap.set('n', '<leader>dr', function() dap.repl.open() end, { desc = "DAP Open REPL" })
+		vim.keymap.set('n', '<leader>dl', function() dap.run_last() end) -- todo: will this have a conflict with leader dlp?
 		vim.keymap.set({ 'n', 'v' }, '<leader>dh', function()
 			require('dap.ui.widgets').hover()
-		end, { desc = "Hover" })
+		end, { desc = "DAP Hover Variables" })
 		vim.keymap.set({ 'n', 'v' }, '<leader>dp', function()
 			require('dap.ui.widgets').preview()
-		end)
+		end, { desc = "DAP Preview Variables" })
 		vim.keymap.set('n', '<leader>df', function()
 			print("In dap frams")
 			local widgets = require('dap.ui.widgets')
 			widgets.centered_float(widgets.frames)
-		end)
+		end, { desc = "DAP Frames" })
 		vim.keymap.set('n', '<leader>ds', function()
 			local widgets = require('dap.ui.widgets')
 			widgets.centered_float(widgets.scopes)
-		end)
+		end, { desc = "DAP Scopes" })
 
 		-- Debuggers
-		-- Scala
-		-- should be done by metals?
-		-- Ruby
+		require("dap-go").setup()
 		require("dap-ruby").setup()
 		dap.configurations.scala = {
 			{
@@ -133,39 +132,4 @@ return {
 	end,
 	-- require("nvim-dap-virtual-text").setup()
 	-- require("nvim-dap-ui").setup()
-
-	-- 	let dap = require("nvim-dap"())
-	-- 	dap.adapters.ruby = function(callback, config)
-	--   callback {
-	--     type = "server",
-	--     host = "127.0.0.1",
-	--     port = "${port}",
-	--     executable = {
-	--       command = "bundle",
-	--       args = { "exec", "rdbg", "-n", "--open", "--port", "${port}",
-	--         "-c", "--", "bundle", "exec", config.command, config.script,
-	--       },
-	--     },
-	--   }
-	-- end
-	--
-	-- dap.configurations.ruby = {
-	--   {
-	--     type = "ruby",
-	--     name = "debug current file",
-	--     request = "attach",
-	--     localfs = true,
-	--     command = "ruby",
-	--     script = "${file}",
-	--   },
-	--   {
-	--     type = "ruby",
-	--     name = "run current spec file",
-	--     request = "attach",
-	--     localfs = true,
-	--     command = "rspec",
-	--     script = "${file}",
-	--   },
-	-- },
-
 }

@@ -7,6 +7,9 @@ alias ed="nvim $HOME/.zshrc"
 
 # Strava Alias
 
+# Navigation Aliases
+alias cdd="~/Documents/workspace/dotfiles" # would be nice to have this more dynamic..
+
 
 # Git Aliases
 git config --global alias.cam 'commit -am'
