@@ -49,3 +49,33 @@ end, {
   bang = true,
 }
 )
+
+
+vim.api.nvim_create_user_command("AutoRunTmux", function(args)
+  local debug = contains(args.fargs, "debug")
+  if debug then
+    print("Length of args: ", #args.fargs)
+    print("Args", vim.inspect(args))
+  end
+  if args.bang then
+    vim.api.nvim_del_augroup_by_name("AutoRunTests")
+  else
+    local stripped_args = strip_reserved_args(args.fargs)
+    vim.api.nvim_create_autocmd("BufWritePost", {
+      group = vim.api.nvim_create_augroup("AutoRunTests", { clear = true }),
+      callback = function()
+        if debug then
+          print("Running autocommand:")
+          print(":TestFile " .. stripped_args)
+        end
+        vim.cmd(":VtrSendCommandToRunner testOnly *EventInsightsNotificationManagerSpec")
+      end,
+    })
+  end
+end, {
+  nargs = "*",
+  desc =
+  "Run tests for current file. Parameters can be passed, which will be postfixed to the callto TestFiles. If bang is included, the autocommand will be removed. Otherwise, it will run on every bufferWrite event.",
+  bang = true,
+}
+)
