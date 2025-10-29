@@ -44,9 +44,9 @@ ZSHRC="$HOME/.zshrc"
 CUSTOMIZE_FILE="$DOTFILES_REPO/cli/init.zsh"
 SOURCE_COMMAND="source $CUSTOMIZE_FILE"
 
-if grep -q "source $SOURCE_COMMAND" "$ZSHRC"; then
+if ! grep -q "$SOURCE_COMMAND" "$ZSHRC"; then
     echo "# Setup customizations in dotfiles" >> "$ZSHRC"
-    echo "source $CUSTOMIZE_FILE" >> "$ZSHRC"
+    echo "$SOURCE_COMMAND" >> "$ZSHRC"
 
     echo "$SOURCE_COMMAND"
     echo "Added customize file source to $ZSHRC"

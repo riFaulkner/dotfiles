@@ -1,11 +1,11 @@
 # Application Aliases
 alias k=kubectl
-alias kx=switch 
+# alias kx=switch 
+alias kx='kubectl config use-config'
+alias kxls='kubectl config get-contexts'
 alias v='nvim .'
 alias lg=lazygit
 alias ed="nvim $HOME/.zshrc"
-
-# Strava Alias
 
 # Navigation Aliases
 alias cdd="~/Documents/workspace/dotfiles" # would be nice to have this more dynamic..
