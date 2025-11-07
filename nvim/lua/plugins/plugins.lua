@@ -23,9 +23,6 @@ return {
 		end,
 	},
 
-	-- might move
-	"github/copilot.vim",
-
 	-- still evaluating
 	{
 		"neovim/nvim-lspconfig",
