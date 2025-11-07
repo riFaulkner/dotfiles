@@ -31,6 +31,7 @@ vim.keymap.set("n", "<leader>dq", vim.diagnostic.setloclist, { desc = "Open diag
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
+  -- print("LSP attached " .. client .. " to buffer " .. bufnr)
   print("LSP attached to buffer " .. bufnr)
   local nmap = function(keys, func, desc)
     if desc then
@@ -78,6 +79,18 @@ On_attach = function(client, bufnr)
   on_attach(client, bufnr)
 end
 
+local group = vim.api.nvim_create_augroup('LspAttachGroup', { clear = true })
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = group,
+  callback = function(args)
+    -- print(vim.inspect(args))
+    local opts = { buffer = args.buf, client = args.data.client_id } -- silent = true ??
+
+    on_attach(opts.client, opts.buffer)
+  end
+})
+
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
@@ -118,15 +131,6 @@ mason_lspconfig.setup({
   ensure_installed = vim.tbl_keys(servers),
 })
 
--- mason_lspconfig.setup_handlers({
---   function(server_name)
---     require("lspconfig")[server_name].setup({
---       capabilities = capabilities,
---       on_attach = on_attach,
---       settings = servers[server_name],
---     })
---   end,
--- })
 
 -- nvim-cmp setup
 local cmp = require("cmp")
@@ -178,16 +182,6 @@ cmp.setup({
     native_menu = false,
   }
 })
-
--- local lspconfig = require('lspconfig')
--- lspconfig.sorbet.setup {
---   cmd = { "bundle", "exec", "sbt", "tc", "--lsp" },
---   init_options = {
---     highlightUntyped = true
---   }
--- }
-
--- require("obsidian").setup({})
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
