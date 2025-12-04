@@ -53,16 +53,18 @@ end, {
 
 vim.api.nvim_create_user_command("AutoRunTmux", function(args)
   local debug = contains(args.fargs, "debug")
+  local group = "AutoRunTests"
   if debug then
     print("Length of args: ", #args.fargs)
     print("Args", vim.inspect(args))
   end
+
   if args.bang then
-    vim.api.nvim_del_augroup_by_name("AutoRunTests")
+    vim.api.nvim_del_augroup_by_name(group)
   else
     local stripped_args = strip_reserved_args(args.fargs)
     vim.api.nvim_create_autocmd("BufWritePost", {
-      group = vim.api.nvim_create_augroup("AutoRunTests", { clear = true }),
+      group = vim.api.nvim_create_augroup(group, { clear = true }),
       callback = function()
         if debug then
           print("Running autocommand:")

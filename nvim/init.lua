@@ -68,10 +68,6 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
     vim.lsp.buf.format()
   end, { desc = "Format current buffer with LSP" })
-
-  vim.api.nvim_buf_create_user_command(bufnr, "F", function(_)
-    vim.lsp.buf.format()
-  end, { desc = "Format current buffer with LSP" })
 end
 
 -- Creates a lil global wrapper for on attach methoed
@@ -85,7 +81,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   group = group,
   callback = function(args)
     -- print(vim.inspect(args))
-    local opts = { buffer = args.buf, client = args.data.client_id } -- silent = true ??
+    local opts = { buffer = args.buf, client = args.data.client_id, silent = true } -- silent = true ??
 
     on_attach(opts.client, opts.buffer)
   end
