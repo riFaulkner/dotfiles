@@ -2,7 +2,7 @@ return {
 	"scalameta/nvim-metals",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		"mfussenegger/nvim-dap",
+		-- "mfussenegger/nvim-dap",
 	},
 	ft = { "scala", "sbt", "thrift" },
 	opts = function()
@@ -14,7 +14,7 @@ return {
 				require("telescope").extensions.metals.commands()
 			end, { desc = "Metals Commands" })
 
-			require("metals").setup_dap()
+			-- require("metals").setup_dap() // maybe one day
 		end
 		metals_config.settings = {
 			autoImportBuild = "all",
