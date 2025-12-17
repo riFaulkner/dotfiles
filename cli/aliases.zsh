@@ -1,7 +1,6 @@
 # Application Aliases
 alias k=kubectl
-# alias kx=switch 
-alias kx='kubectl config use-config'
+alias kx='kubectl config use-context'
 alias kxls='kubectl config get-contexts'
 alias v='nvim .'
 alias lg=lazygit
