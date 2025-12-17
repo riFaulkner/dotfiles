@@ -36,9 +36,9 @@ vim.api.nvim_create_user_command("AutoRunTests", function(args)
       callback = function()
         if debug then
           print("Running autocommand:")
-          print(":TestFile " .. stripped_args)
+          print(":TestLast " .. stripped_args)
         end
-        vim.cmd(":TestFile ")
+        vim.cmd(":TestLast ")
       end,
     })
   end
@@ -81,3 +81,8 @@ end, {
   bang = true,
 }
 )
+
+-- Reload all buffers, this should help with files that change outside of nvim
+vim.api.nvim_create_user_command('ReloadAll', function()
+  vim.cmd('bufdo e')
+end, {})
