@@ -40,14 +40,14 @@ t_new() {
 
 	if ! tmux has-session -t "$SESSION" 2>/dev/null; then
 
-	tmux new-session -d -s "$SESSION" -c $DIR -n nvim
+	tmux new-session -d -s "$SESSION" -c "$DIR" -n nvim
 
 	tmux send-keys -t "$SESSION:nvim" 'nvim .' C-m
 
-	tmux new-window -t $SESSION -n shell
+	tmux new-window -t "$SESSION" -n shell
 
 	fi
 
-	tmux attach-session -t $SESSION:nvim
+	tmux attach-session -t "$SESSION:nvim"
 }
 

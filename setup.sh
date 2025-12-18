@@ -20,7 +20,7 @@ DOTFILES_REPO="$PWD"
 # Create a map of the different symlinks to create, then loop through the list and create the symlink, if it hasn't already been created
 LINKS=(
     "$XDG_CONFIG_HOME/nvim" "$DOTFILES_REPO/nvim"
-    "$XDG_CONFIG_HOME/tmux" "$DOTFILES_REPO/tmux"
+    "$XDG_CONFIG_HOME/tmux/tmux.conf" "$DOTFILES_REPO/tmux/tmux.conf"
     "$XDG_CONFIG_HOME/ghostty" "$DOTFILES_REPO/ghostty"
     "$XDG_CONFIG_HOME/py" "$DOTFILES_REPO/python"
 )

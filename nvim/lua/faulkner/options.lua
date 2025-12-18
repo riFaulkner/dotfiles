@@ -50,3 +50,5 @@ vim.opt_local.conceallevel = 1
 
 -- Updated in nvim 0.11 this now needs to be explicitly set
 vim.diagnostic.config({ virtual_text = true })
+
+vim.opt.swapfile = false
