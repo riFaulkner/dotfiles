@@ -1,13 +1,17 @@
 #!/bin/bash
 
-# Ensure XDG_CONFIG_HOME is set
-: "${XDG_CONFIG_HOME:=$HOME/.config}"
+source "$(dirname "$0")/config.sh"
 
 function create_symlink () {
     local SOURCE="$1"
     local TARGET="$2"
 
     if [ ! -e "$TARGET" ]; then
+	if [ ! -L "$TARGET" ]; then
+	    echo "Something is at the target ($TARGET) but it is not a symlink"
+	fi
+
+	mkdir -p "$(dirname "$TARGET")"
 	ln -s "$SOURCE" "$TARGET"
 	echo "Created symlink: $TARGET -> $SOURCE"
     else
@@ -15,32 +19,20 @@ function create_symlink () {
     fi
 }
 
-DOTFILES_REPO="$PWD"
-
-# Create a map of the different symlinks to create, then loop through the list and create the symlink, if it hasn't already been created
-LINKS=(
-    "$XDG_CONFIG_HOME/nvim" "$DOTFILES_REPO/nvim"
-    "$XDG_CONFIG_HOME/tmux/tmux.conf" "$DOTFILES_REPO/tmux/tmux.conf"
-    "$XDG_CONFIG_HOME/ghostty" "$DOTFILES_REPO/ghostty"
-    "$XDG_CONFIG_HOME/py" "$DOTFILES_REPO/python"
-)
-
-
-for (( i=0; i<${#LINKS[@]}; i+=2 )); do
-    TARGET="${LINKS[$i]}"
-    SOURCE="${LINKS[$i+1]}"
-    create_symlink "$SOURCE" "$TARGET"
+# See config.sh for the list of links to create
+for (( i=0; i<${#links[@]}; i+=2 )); do
+    target="${links[$i]}"
+    source="${links[$i+1]}"
+    create_symlink "$source" "$target"
 done
 
+# Clone TPM if not already installed, this is a tmux plugin
+TPM_DIR="${XDG_CONFIG_HOME}/tmux/plugins/tpm"
+if [ ! -d "$TPM_DIR/.git" ]; then
+    git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
+fi
 
-# TODO: 
-# I think the way I want to handle this config is to have my zshrc load one config file that I have in my dot files repo, that file can then source everything it need to
-# - p10k
-# - source scripts
-# - override the omzsh customizations file
-#    - This will allow for aliases to be loaded from my dotfiles config
 
-ZSHRC="$HOME/.zshrc"
 CUSTOMIZE_FILE="$DOTFILES_REPO/cli/init.zsh"
 SOURCE_COMMAND="source $CUSTOMIZE_FILE"
 
@@ -54,7 +46,6 @@ else
     echo "Customize file already exists in $ZSHRC"
 fi
 
-#
 # Reload .zshrc to apply changes
 if [ -n "$ZSH_VERSION" ]; then
     echo "Reloading $ZSHRC"
