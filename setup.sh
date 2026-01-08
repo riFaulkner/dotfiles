@@ -33,6 +33,8 @@ if [ ! -d "$TPM_DIR/.git" ]; then
 fi
 
 
+git update-index --assume-unchanged "$DOTFILES_REPO/cli/secrets.zsh"
+
 CUSTOMIZE_FILE="$DOTFILES_REPO/cli/init.zsh"
 SOURCE_COMMAND="source $CUSTOMIZE_FILE"
 
@@ -45,6 +47,7 @@ if ! grep -q "$SOURCE_COMMAND" "$ZSHRC"; then
 else
     echo "Customize file already exists in $ZSHRC"
 fi
+
 
 # Reload .zshrc to apply changes
 if [ -n "$ZSH_VERSION" ]; then
