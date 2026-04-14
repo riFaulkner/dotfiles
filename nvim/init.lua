@@ -110,6 +110,8 @@ local servers = {
   },
 
   bashls = {},
+
+  graphql = {},
 }
 
 -- Setup neovim lua configuration
