@@ -1,0 +1,83 @@
+# TokyoNight-day theme for k9s
+# Based on the TokyoNight-day color scheme
+# Official colors: https://github.com/folke/tokyonight.nvim
+
+k9s:
+  body:
+    fgColor: "#2e7de9"
+    bgColor: "#e1e2e7"
+    logoColor: "#7847bd"
+  prompt:
+    fgColor: "#2e7de9"
+    bgColor: "#e1e2e7"
+    suggestColor: "#8f5e15"
+  info:
+    fgColor: "#965027"
+    sectionColor: "#2e7de9"
+  dialog:
+    fgColor: "#2e7de9"
+    bgColor: "#e1e2e7"
+    buttonFgColor: "#2e7de9"
+    buttonBgColor: "#848cb5"
+    buttonFocusFgColor: "#e1e2e7"
+    buttonFocusBgColor: "#2e7de9"
+    labelFgColor: "#965027"
+    fieldFgColor: "#2e7de9"
+  frame:
+    border:
+      fgColor: "#848cb5"
+      focusColor: "#2e7de9"
+    menu:
+      fgColor: "#2e7de9"
+      keyColor: "#965027"
+      numKeyColor: "#7847bd"
+    crumbs:
+      fgColor: "#2e7de9"
+      bgColor: "#d0d5e3"
+      activeColor: "#965027"
+    status:
+      newColor: "#2e7de9"
+      modifyColor: "#2e7de9"
+      addColor: "#587539"
+      errorColor: "#8c4351"
+      highlightColor: "#8f5e15"
+      killColor: "#848cb5"
+      completedColor: "#848cb5"
+    title:
+      fgColor: "#2e7de9"
+      bgColor: "#d0d5e3"
+      highlightColor: "#965027"
+      counterColor: "#7847bd"
+      filterColor: "#965027"
+  views:
+    charts:
+      bgColor: "#e1e2e7"
+      defaultDialColors:
+        - "#2e7de9"
+        - "#8c4351"
+      defaultChartColors:
+        - "#2e7de9"
+        - "#8c4351"
+    table:
+      fgColor: "#2e7de9"
+      bgColor: "#e1e2e7"
+      header:
+        fgColor: "#2e7de9"
+        bgColor: "#d0d5e3"
+        sorterColor: "#2e7de9"
+    xray:
+      fgColor: "#2e7de9"
+      bgColor: "#e1e2e7"
+      cursorColor: "#d0d5e3"
+      graphicColor: "#2e7de9"
+      showIcons: false
+    yaml:
+      keyColor: "#2e7de9"
+      colonColor: "#848cb5"
+      valueColor: "#007197"
+    logs:
+      fgColor: "#2e7de9"
+      bgColor: "#e1e2e7"
+      indicator:
+        fgColor: "#7847bd"
+        bgColor: "#d0d5e3"
