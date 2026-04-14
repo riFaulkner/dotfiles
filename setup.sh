@@ -32,8 +32,8 @@ if [ ! -d "$TPM_DIR/.git" ]; then
     git clone https://github.com/tmux-plugins/tpm "$TPM_DIR"
 fi
 
-
-git update-index --assume-unchanged "$DOTFILES_REPO/cli/secrets.zsh"
+# Must be run in the local git dir
+git update-index --assume-unchanged cli/secrets.zsh
 
 CUSTOMIZE_FILE="$DOTFILES_REPO/cli/init.zsh"
 SOURCE_COMMAND="source $CUSTOMIZE_FILE"
