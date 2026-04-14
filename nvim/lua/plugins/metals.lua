@@ -7,6 +7,12 @@ return {
 	ft = { "scala", "sbt", "thrift" },
 	opts = function()
 		local metals_config = require("metals").bare_config()
+
+		-- Set environment variables for sbt BSP server
+		metals_config.cmd_env = {
+			SBT_OPTS = "-Xms512m -Xmx4096m -Xss4M"
+		}
+
 		metals_config.on_attach = function(client, bufnr)
 			On_attach(client, bufnr)
 
@@ -19,12 +25,25 @@ return {
 		metals_config.settings = {
 			autoImportBuild = "all",
 			defaultBspToBuildTool = true,
-			-- showImplicitArguments = true,
-			-- showImplicitConversionsAndClasses = true,
+			-- inlayHints = {
+			-- 	byNameParameters = { enable = true },
+			-- },
+			-- JVM options for the sbt build server
+			serverProperties = {
+				"-Xms512m", -- Initial heap size
+				"-Xmx4096m", -- Maximum heap size (4GB for large projects)
+				"-Xss4M" -- Stack size
+			}
+
+			-- scalafmtConfigPath
 			-- showInferredType = true,
-			-- statusBarProvider = "off", -- don't think this is a real thing, see the below of adding statusBarProvider to init_options -- NVim metals you are the worst
 		}
 		metals_config.init_options.statusBarProvider = "off"
+
+		-- Try this to see if it'll work to get values to propagate to my
+		-- metals_config.cmd_env = {
+		--      SBT_OPTS = "-Xms512m -Xmx4096m -Xss4M"
+		--  }
 
 		return metals_config
 	end,
