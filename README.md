@@ -13,7 +13,7 @@ Run the dotfiles setup script. This will run a `brew install` to install all the
    - nvim config
    - tmux config
    - ghosty config
-- .zshrc updates
-   - [TODO] automate adding `./cli_conf/custom` to .zshrc (this is how the aliases are loaded)
+   - python utilities
+   - k9s setup
    - 
 

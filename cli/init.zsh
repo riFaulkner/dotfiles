@@ -6,6 +6,7 @@ DOTFILES_ROOT_DIR="${DOTFILES_CLI_DIR:h}"
 # Auto copmlete to uv for python
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # Source in aliases and other files as this init grows
 source "${DOTFILES_CLI_DIR}/aliases.zsh"
